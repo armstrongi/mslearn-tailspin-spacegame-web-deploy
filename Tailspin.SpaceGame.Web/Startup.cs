@@ -31,7 +31,10 @@ namespace TailSpin.SpaceGame.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Add document stores. These are passed to the HomeController constructor.
-            services.AddSingleton<IDocumentDBRepository>(new RemoteDBRepository(Configuration));
+            //services.AddSingleton<IDocumentDBRepository>(new RemoteDBRepository(Configuration));
+
+            //Fixed data load issue.
+            services.AddSingleton<IDocumentDBRepository>(new LocalDocumentDBRepository(@"SampleData/scores.json", @"SampleData/profiles.json"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
