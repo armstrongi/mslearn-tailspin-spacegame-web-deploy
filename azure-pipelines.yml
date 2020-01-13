@@ -1,3 +1,4 @@
+# Comment
 variables:
   buildConfiguration: 'Release'
 
